@@ -12,24 +12,18 @@ const MatrixBackground = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const container = canvas.parentElement!;
+    // Fixed canvas size – doesn’t depend on the window or container
+    canvas.width = 220;
+    canvas.height = 220;
 
-    const resizeCanvas = () => {
-      // Canvas fills the entire home-container
-      canvas.width = container.clientWidth;
-      canvas.height = container.clientHeight;
-    };
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    // Responsive font size
-    const fontSizeBase = canvas.width < 480 ? 32 : canvas.width < 768 ? 42 : 48;
-    const fontSize = Math.min(56, Math.max(28, fontSizeBase));
+    const fontSize = 38; // comfortable fixed size
     ctx.font = `${fontSize}px 'Mulish', monospace`;
+    ctx.fillStyle = "rgba(100, 100, 100, 0.07)"; // dim grey
 
-    const totalFloats = 20;
-    const centerX = canvas.width * 0.5; // horizontal centre
-    const centerY = canvas.height * 0.5; // vertical centre
+    const totalFloats = 8; // a few more for a nice cluster
+    // Cluster origin: top‑right area of the canvas (with margin)
+    const centerX = canvas.width - 65; // 65px from right edge
+    const centerY = 65; // 65px from top edge
 
     const floats: {
       baseX: number;
@@ -45,18 +39,19 @@ const MatrixBackground = () => {
 
     for (let i = 0; i < totalFloats; i++) {
       const angle =
-        (i / totalFloats) * Math.PI * 2 + (Math.random() - 0.5) * 1.2;
-      const radius = 35 + Math.random() * 50;
-      const jitterX = (Math.random() - 0.5) * 30;
-      const jitterY = (Math.random() - 0.5) * 30;
+        (i / totalFloats) * Math.PI * 2 + (Math.random() - 0.5) * 1.5;
+      // Keep the radius moderate so the cluster stays within the canvas
+      const radius = 30 + Math.random() * 65;
+      const jitterX = (Math.random() - 0.5) * 20;
+      const jitterY = (Math.random() - 0.5) * 20;
 
       floats.push({
         baseX: centerX + Math.cos(angle) * radius + jitterX,
         baseY: centerY + Math.sin(angle) * radius + jitterY,
-        offsetX: (Math.random() - 0.5) * 12,
-        offsetY: (Math.random() - 0.5) * 12,
-        speedX: 0.1 + Math.random() * 0.3,
-        speedY: 0.15 + Math.random() * 0.4,
+        offsetX: (Math.random() - 0.5) * 10,
+        offsetY: (Math.random() - 0.5) * 10,
+        speedX: 0.1 + Math.random() * 0.25,
+        speedY: 0.15 + Math.random() * 0.35,
         directionX: Math.random() > 0.5 ? 1 : -1,
         directionY: Math.random() > 0.5 ? 1 : -1,
         value: getRandomNumber(1, 99),
@@ -67,7 +62,6 @@ const MatrixBackground = () => {
       repeat: -1,
       onUpdate: () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(100, 100, 100, 0.07)"; // subtle, dim grey
         ctx.font = `${fontSize}px 'Mulish', monospace`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
@@ -76,8 +70,8 @@ const MatrixBackground = () => {
           f.offsetX += f.speedX * f.directionX;
           f.offsetY += f.speedY * f.directionY;
 
-          if (Math.abs(f.offsetX) > 18) f.directionX *= -1;
-          if (Math.abs(f.offsetY) > 18) f.directionY *= -1;
+          if (Math.abs(f.offsetX) > 15) f.directionX *= -1;
+          if (Math.abs(f.offsetY) > 15) f.directionY *= -1;
 
           const x = f.baseX + f.offsetX;
           const y = f.baseY + f.offsetY;
@@ -94,20 +88,19 @@ const MatrixBackground = () => {
     tl.to({}, { duration: 0.1 });
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
       tl.kill();
     };
-  }, []);
+  }, []); // no resize listener needed anymore
 
   return (
     <canvas
       ref={canvasRef}
       style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
+        position: "fixed", // stays put even if page scrolls
+        top: "100px", // margin from top
+        right: "80px", // margin from right
+        width: "220px",
+        height: "220px",
         zIndex: -1,
         pointerEvents: "none",
       }}
