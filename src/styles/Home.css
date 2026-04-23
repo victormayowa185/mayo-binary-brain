@@ -7,13 +7,13 @@
   justify-content: center;
   padding: 1.5rem 1.5rem 1rem 20px;
   background-color: transparent;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   text-align: center;
   overflow-y: auto;
 }
 
-.ai{
-    color:#5c7bff ;
+.ai {
+  color: #5c7bff;
 }
 .home-header h1 {
   font-size: clamp(2rem, 6vw, 3.2rem);
@@ -31,7 +31,7 @@
 .home-divider {
   width: 70px;
   height: 2px;
-  background:#5c7bff ;
+  background: #5c7bff;
   margin: 1.5rem auto;
 }
 .home-actions {
@@ -61,8 +61,53 @@
   color: #fff;
   border-color: #5c7bff;
 }
-.home-btn-ai:hover { background: #4a6ae0; transform: translateY(-1px); box-shadow: 0 8px 16px rgba(92,123,255,0.2); }
-.home-btn-player:hover { background: #f8f9ff; border-color: #5c7bff; transform: translateY(-1px); }
-@media (max-width: 900px) { .home-container { padding-left: 180px; } }
-@media (max-width: 700px) { .home-container { height: auto; min-height: 100vh; padding: 2rem 1.5rem 2rem 140px; } }
-@media (max-width: 480px) { .home-container { padding: 1.5rem 1rem 2rem 120px; } }
+.home-btn-ai:hover {
+  background: #4a6ae0;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(92, 123, 255, 0.2);
+}
+.home-btn-player:hover {
+  background: #f8f9ff;
+  border-color: #5c7bff;
+  transform: translateY(-1px);
+}
+@media (max-width: 900px) {
+  .home-container {
+    padding-left: 180px;
+  }
+}
+@media (max-width: 700px) {
+  .home-container {
+    height: auto;
+    min-height: 100vh;
+    padding: 2rem 1.5rem 2rem 140px;
+  }
+}
+@media (max-width: 480px) {
+  .home-container {
+    padding: 1.5rem 1rem 2rem 120px;
+  }
+}
+
+/* Make the heading a positioning reference for the robot icon */
+.home-header {
+  position: relative;
+  display: inline-block; /* or keep block if you want */
+}
+
+/* The animated letter – no extra styling needed, just ensures smooth animation */
+.animated-i {
+  display: inline-block; /* needed for transforms to work */
+  transform-origin: center;
+}
+
+/* Robot icon – starts invisible, absolutely positioned */
+.robot-icon {
+  position: absolute;
+  top: -35px; /* adjust to place it above the "i" */
+  left: 50%; /* center roughly above the letter */
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  color: #5c7bff;
+  pointer-events: none; /* so it doesn't block clicks */
+}
