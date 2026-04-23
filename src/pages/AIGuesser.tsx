@@ -13,8 +13,6 @@ const AIGuesser = () => {
       Math.floor(Math.random() * (initialMax - initialMin + 1)) + initialMin,
   );
   const [targetInput, setTargetInput] = useState(target.toString());
-  const [min, setMin] = useState(initialMin);
-  const [max, setMax] = useState(initialMax);
   const [guess, setGuess] = useState<number | null>(null);
   const [attempts, setAttempts] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
@@ -77,14 +75,12 @@ const AIGuesser = () => {
         `Guess: ${mid} → Too low, new range: ${mid + 1} – ${high}`,
       ]);
       currentStepRef.current = { low: mid + 1, high };
-      setMin(mid + 1);
     } else {
       setLog((l) => [
         ...l,
         `Guess: ${mid} → Too high, new range: ${low} – ${mid - 1}`,
       ]);
       currentStepRef.current = { low, high: mid - 1 };
-      setMax(mid - 1);
     }
     timeoutRef.current = setTimeout(
       () =>
@@ -102,8 +98,6 @@ const AIGuesser = () => {
       return;
     }
     setTarget(num);
-    setMin(initialMin);
-    setMax(initialMax);
     setAttempts(0);
     setLog([]);
     setIsComplete(false);
@@ -124,8 +118,6 @@ const AIGuesser = () => {
     setTarget(newTarget);
     setTargetInput(newTarget.toString());
     setMessage(`Target set to ${newTarget}. Click Start.`);
-    setMin(initialMin);
-    setMax(initialMax);
     setGuess(null);
     setAttempts(0);
     setLog([]);
