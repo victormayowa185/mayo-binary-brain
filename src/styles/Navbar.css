@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar-left { display: flex; gap: 1.5rem; }
+.navbar-icon { color: #333; transition: color 0.2s; }
+.navbar-icon:hover { color: #5c7bff; }
+.navbar-logo { font-size: 1.5rem; font-weight: 700; color: #000; }
+.logo-dot { color: #5c7bff; }
+@media (max-width: 480px) { .navbar { padding: 1rem 1.25rem; } }

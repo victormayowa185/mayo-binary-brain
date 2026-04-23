@@ -1,0 +1,10 @@
+.notfound-container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Mulish', sans-serif;
+  text-align: center;
+}
+.notfound-container h1 { font-size: 6rem; color: #5c7bff; margin: 0; }

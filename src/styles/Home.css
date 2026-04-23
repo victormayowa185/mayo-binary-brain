@@ -1,0 +1,63 @@
+.home-container {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.5rem 1rem 200px;
+  background-color: #ffffff;
+  font-family: 'Mulish', sans-serif;
+  text-align: center;
+  overflow-y: auto;
+}
+.home-header h1 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.75rem;
+}
+.home-description p {
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
+  color: #444;
+  line-height: 1.5;
+  max-width: 550px;
+  margin: 0 auto;
+}
+.home-divider {
+  width: 70px;
+  height: 2px;
+  background: #5c7bff;
+  margin: 1.5rem auto;
+}
+.home-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  width: 100%;
+  max-width: 340px;
+}
+.home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.875rem 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 60px;
+  border: 1.5px solid #e0e0e0;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.home-btn-ai {
+  background: #5c7bff;
+  color: #fff;
+  border-color: #5c7bff;
+}
+.home-btn-ai:hover { background: #4a6ae0; transform: translateY(-1px); box-shadow: 0 8px 16px rgba(92,123,255,0.2); }
+.home-btn-player:hover { background: #f8f9ff; border-color: #5c7bff; transform: translateY(-1px); }
+@media (max-width: 900px) { .home-container { padding-left: 180px; } }
+@media (max-width: 700px) { .home-container { height: auto; min-height: 100vh; padding: 2rem 1.5rem 2rem 140px; } }
+@media (max-width: 480px) { .home-container { padding: 1.5rem 1rem 2rem 120px; } }

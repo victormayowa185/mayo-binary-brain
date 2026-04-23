@@ -1,0 +1,13 @@
+.footer {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #888;
+}
+.brand-mayo { font-weight: 700; color: #000; }
+.brand-name { font-weight: 700; color: #5c7bff; }
+.github-link { color: #333; transition: color 0.2s; }
+.github-link:hover { color: #5c7bff; }

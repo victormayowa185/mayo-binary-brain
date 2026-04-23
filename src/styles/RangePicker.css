@@ -1,0 +1,74 @@
+.range-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  font-family: 'Mulish', sans-serif;
+}
+.back-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.back-btn:hover { color: #5c7bff; }
+.range-card {
+  max-width: 480px;
+  width: 100%;
+  padding: 2.5rem 2rem;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border: 1px solid #f0f0f0;
+  text-align: center;
+}
+.range-title { font-size: 2rem; font-weight: 700; color: #000; margin-bottom: 0.75rem; }
+.range-description { font-size: 1rem; color: #666; margin-bottom: 1.5rem; }
+.range-divider { width: 60px; height: 2px; background: #5c7bff; margin: 0 auto 2rem; }
+.range-inputs { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+.input-group { flex: 1; text-align: left; }
+.input-group label { display: block; font-size: 0.875rem; font-weight: 600; color: #333; margin-bottom: 0.5rem; }
+.range-input {
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 1.125rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 16px;
+  text-align: center;
+}
+.range-input:focus { outline: none; border-color: #5c7bff; box-shadow: 0 0 0 3px rgba(92,123,255,0.1); }
+.range-error { color: #e53935; font-size: 0.875rem; margin-bottom: 1.5rem; }
+.start-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  background: #5c7bff;
+  color: #fff;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+}
+.start-btn:hover:not(:disabled) { background: #4a6ae0; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(92,123,255,0.25); }
+.start-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.6; }
+@media (max-width: 600px) {
+  .back-btn { position: static; margin-bottom: 1.5rem; align-self: flex-start; }
+  .range-container { justify-content: flex-start; padding-top: 1.5rem; }
+  .range-card { padding: 2rem 1.5rem; }
+  .range-inputs { flex-direction: column; gap: 1rem; }
+}
