@@ -6,7 +6,14 @@ const Footer = () => {
     <footer className="footer">
       <p>
         A <span className="brand-mayo">MAYO</span> project by{" "}
-        <span className="brand-name">Victor Mayowa</span>
+        <a
+          href="https://victormayowa.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="brand-name"
+        >
+          Victor Mayowa
+        </a>
       </p>
       <a
         href="https://github.com/victormayowa185"

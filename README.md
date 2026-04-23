@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# Binary Brain 🧠
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A minimalist AI number‑guessing game demonstrating binary search efficiency.**
+Built by [Victor Mayowa](https://victormayowa.vercel.app) | **MAYO**
 
-Currently, two official plugins are available:
+[![Victor Mayowa Binary Brain Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-%235c7bff?style=flat&logo=vercel)](https://mayo-binary-brain.vercel.app)
+[![Victor Mayowa GitHub Repo](https://img.shields.io/badge/GitHub-Repo-%23181717?style=flat&logo=github)](https://github.com/victormayowa185/mayo-binary-brain)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🎯 What is Binary Brain?
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Binary Brain is an interactive web experiment that shows how **binary search** can guess any number between 10 and 100 in **7 tries or less**. It was built by frontend developer Victor Mayowa to explore algorithmic efficiency in a clean, visual way.
 
-## Expanding the ESLint configuration
+## 🧠 Concepts Demonstrated
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Algorithm Efficiency:** Implements a binary search with $O(\log n)$ time complexity.
+- **State Management:** Uses React hooks for real-time game logic and UI updates.
+- **Frontend Engineering:** Built with TypeScript and Vite for an optimized, type-safe developer environment.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **🤖 AI Guesser** – Watch the computer perform a binary search step‑by‑step with a live log, timer, and attempt counter.
+- **👤 Player Guesser** – Try to outsmart the AI by guessing a secret number with real‑time feedback.
+- **Clean UI** – Minimalist developer design with a floating number matrix animation (powered by GSAP).
+- **Responsive Web Design** – Works seamlessly across mobile, tablet, and desktop interfaces.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [GSAP](https://gsap.com/)
+- [React Router](https://reactrouter.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📁 Project Structure
