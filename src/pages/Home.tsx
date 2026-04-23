@@ -11,7 +11,7 @@ const Home = () => {
     <div className="home-container">
       <MatrixBackground />
       <header className="home-header">
-        <h1>Welcome to Number Guess AI</h1>
+        <h1>Welcome to a Number Guessing <span className="ai">AI</span></h1>
       </header>
       <section className="home-description">
         <p>

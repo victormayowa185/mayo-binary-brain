@@ -4,6 +4,10 @@ import "../styles/Navbar.css";
 
 const Navbar = () => (
   <nav className="navbar">
+    <Link to="/" className="navbar-logo">
+      MAYO<span className="logo-dot">.</span>
+    </Link>
+
     <div className="navbar-left">
       <Link to="/contact" className="navbar-icon">
         <FaEnvelope size={22} />
@@ -17,9 +21,6 @@ const Navbar = () => (
         <FaUserCircle size={24} />
       </a>
     </div>
-    <Link to="/" className="navbar-logo">
-      MAYO<span className="logo-dot">.</span>
-    </Link>
   </nav>
 );
 export default Navbar;

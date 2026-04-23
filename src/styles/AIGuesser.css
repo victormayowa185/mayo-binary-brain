@@ -1,11 +1,11 @@
 .ai-guesser-container {
-  min-height: 80vh;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem 1.5rem;
   background: #fff;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
 }
 .ai-guesser-card {
   max-width: 600px;
@@ -13,24 +13,122 @@
   padding: 2.5rem 2rem;
   background: #fff;
   border-radius: 32px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
   border: 1px solid #f0f0f0;
   text-align: center;
 }
-.ai-title { font-size: 2rem; font-weight: 700; color: #000; margin-bottom: 1rem; }
-.range-display { font-size: 1rem; color: #666; margin-bottom: 1.5rem; padding: 0.5rem 1rem; background: #f8f9ff; border-radius: 40px; display: inline-block; }
-.target-section { margin-bottom: 2rem; text-align: left; }
-.target-section label { display: block; font-size: 0.9rem; font-weight: 600; color: #333; margin-bottom: 0.5rem; }
-.target-input-group { display: flex; gap: 0.5rem; }
-.target-input { flex: 1; padding: 0.875rem 1rem; font-size: 1.2rem; border: 1.5px solid #e0e0e0; border-radius: 16px; text-align: center; }
-.randomize-btn { padding: 0 1.2rem; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 16px; color: #5c7bff; font-size: 1.2rem; cursor: pointer; }
-.guess-number { font-size: 5rem; font-weight: 700; color: #5c7bff; }
-.message-box { min-height: 3rem; padding: 0.75rem; font-size: 1.1rem; background: #fafafa; border-radius: 20px; margin-bottom: 1.5rem; }
-.log-box { max-height: 180px; overflow-y: auto; background: #fafafa; border-radius: 16px; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem; border: 1px solid #eee; }
-.log-entry { padding: 0.25rem 0; color: #555; border-bottom: 1px dashed #eee; }
-.stats { display: flex; justify-content: space-around; margin-bottom: 2rem; font-size: 1.2rem; font-weight: 600; }
-.action-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.primary-btn, .secondary-btn, .outline-btn { padding: 0.875rem 1.75rem; font-size: 1rem; font-weight: 600; border-radius: 60px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; border: none; }
-.primary-btn { background: #5c7bff; color: #fff; }
-.secondary-btn { background: #fff; color: #5c7bff; border: 1.5px solid #5c7bff; }
-.outline-btn { background: #fff; color: #333; border: 1.5px solid #e0e0e0; }
+.ai-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1rem;
+}
+.range-display {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8f9ff;
+  border-radius: 40px;
+  display: inline-block;
+}
+.target-section {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+.target-section label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.target-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+.target-input {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  font-size: 1.2rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 16px;
+  text-align: center;
+}
+.randomize-btn {
+  padding: 0 1.2rem;
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 16px;
+  color: #5c7bff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.guess-number {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #5c7bff;
+}
+.message-box {
+  min-height: 3rem;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  background: #fafafa;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+.log-box {
+  max-height: 180px;
+  overflow-y: auto;
+  background: #fafafa;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #eee;
+}
+.log-entry {
+  padding: 0.25rem 0;
+  color: #555;
+  border-bottom: 1px dashed #eee;
+}
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.primary-btn,
+.secondary-btn,
+.outline-btn {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 60px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+}
+.primary-btn {
+  background: #5c7bff;
+  color: #fff;
+}
+.secondary-btn {
+  background: #fff;
+  color: #5c7bff;
+  border: 1.5px solid #5c7bff;
+}
+.outline-btn {
+  background: #fff;
+  color: #333;
+  border: 1.5px solid #e0e0e0;
+}
