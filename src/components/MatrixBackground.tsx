@@ -12,32 +12,30 @@ const MatrixBackground = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const container = canvas.parentElement!;
+
     const resizeCanvas = () => {
-      const container = canvas.parentElement;
-      if (container) {
-        canvas.width = 500;
-        canvas.height = container.clientHeight;
-      } else {
-        canvas.width = 500;
-        canvas.height = window.innerHeight;
-      }
+      // Canvas fills the entire home-container
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
     };
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    const fontSize = 48;
+    // Responsive font size
+    const fontSizeBase = canvas.width < 480 ? 32 : canvas.width < 768 ? 42 : 48;
+    const fontSize = Math.min(56, Math.max(28, fontSizeBase));
     ctx.font = `${fontSize}px 'Mulish', monospace`;
 
-    // ----- generate positions in a distorted circle / organic cluster -----
-    const totalFloats = 20; // adjust for desired density
-    const centerX = canvas.width * 0.5; // 80px (mid‑width)
-    const centerY = canvas.height * 0.5; // vertically centered
+    const totalFloats = 20;
+    const centerX = canvas.width * 0.5; // horizontal centre
+    const centerY = canvas.height * 0.5; // vertical centre
 
     const floats: {
-      baseX: number; // fixed X position (now part of the cluster)
-      baseY: number; // fixed Y position
-      offsetY: number; // bobbing vertical offset
-      offsetX: number; // subtle horizontal drift (adds to organic feel)
+      baseX: number;
+      baseY: number;
+      offsetY: number;
+      offsetX: number;
       speedY: number;
       speedX: number;
       directionY: number;
@@ -46,21 +44,15 @@ const MatrixBackground = () => {
     }[] = [];
 
     for (let i = 0; i < totalFloats; i++) {
-      // Distribute angles somewhat evenly, then perturb
       const angle =
         (i / totalFloats) * Math.PI * 2 + (Math.random() - 0.5) * 1.2;
-      // Radius: vary between 30 and 80 pixels from center
       const radius = 35 + Math.random() * 50;
-      // Add extra random offset in cartesian space to distort the circle
       const jitterX = (Math.random() - 0.5) * 30;
       const jitterY = (Math.random() - 0.5) * 30;
 
-      const baseX = centerX + Math.cos(angle) * radius + jitterX;
-      const baseY = centerY + Math.sin(angle) * radius + jitterY;
-
       floats.push({
-        baseX,
-        baseY,
+        baseX: centerX + Math.cos(angle) * radius + jitterX,
+        baseY: centerY + Math.sin(angle) * radius + jitterY,
         offsetX: (Math.random() - 0.5) * 12,
         offsetY: (Math.random() - 0.5) * 12,
         speedX: 0.1 + Math.random() * 0.3,
@@ -74,26 +66,22 @@ const MatrixBackground = () => {
     const tl = gsap.timeline({
       repeat: -1,
       onUpdate: () => {
-        // clear without blur
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(100, 100, 100, 0.07)"; // darker grey with more opacity
+        ctx.fillStyle = "rgba(100, 100, 100, 0.07)"; // subtle, dim grey
         ctx.font = `${fontSize}px 'Mulish', monospace`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
 
         floats.forEach((f) => {
-          // bobbing / drifting motion
           f.offsetX += f.speedX * f.directionX;
           f.offsetY += f.speedY * f.directionY;
 
-          // reverse direction when offset gets too large (gives gentle wandering)
           if (Math.abs(f.offsetX) > 18) f.directionX *= -1;
           if (Math.abs(f.offsetY) > 18) f.directionY *= -1;
 
           const x = f.baseX + f.offsetX;
           const y = f.baseY + f.offsetY;
 
-          // occasionally update the number
           if (Math.random() < 0.002) {
             f.value = getRandomNumber(1, 99);
           }
@@ -116,9 +104,9 @@ const MatrixBackground = () => {
       ref={canvasRef}
       style={{
         position: "absolute",
-        top: 40,
-        left: "120px",
-        width: "500px",
+        top: 0,
+        left: 0,
+        width: "100%",
         height: "100%",
         zIndex: -1,
         pointerEvents: "none",
