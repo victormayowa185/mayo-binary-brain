@@ -9,10 +9,21 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
-import "./App.css"; // We'll create this
+import "./styles/darkmode/index.css";
+import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
+
+  // 🔥 Apply saved dark mode immediately on mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);

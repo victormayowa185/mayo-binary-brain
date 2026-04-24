@@ -18,7 +18,7 @@ const MatrixBackground = () => {
 
     const fontSize = 38; // comfortable fixed size
     ctx.font = `${fontSize}px 'Mulish', monospace`;
-    ctx.fillStyle = "rgba(100, 100, 100, 0.07)"; // dim grey
+    ctx.fillStyle = "rgba(100, 100, 100, 0.21)"; // dim grey
 
     const totalFloats = 8; // a few more for a nice cluster
     // Cluster origin: top‑right area of the canvas (with margin)

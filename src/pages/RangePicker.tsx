@@ -35,7 +35,15 @@ const RangePicker = () => {
         <FaArrowLeft /> Back
       </button>
       <div className="range-card">
-        <h1 className="range-title">{modeTitle}</h1>
+        <h1 className="range-title">
+          {mode === "ai" ? (
+            <>
+              <span className="ai">AI</span> Guesses
+            </>
+          ) : (
+            "You Guess"
+          )}
+        </h1>
         <p className="range-description">{modeDescription}</p>
         <div className="range-divider" />
         <div className="range-inputs">

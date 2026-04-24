@@ -64,6 +64,9 @@
   font-size: 1.2rem;
   cursor: pointer;
 }
+.ai{
+  color: #5c7bff !important;
+}
 .guess-number {
   font-size: 5rem;
   font-weight: 700;

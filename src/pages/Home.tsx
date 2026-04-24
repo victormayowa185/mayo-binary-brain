@@ -23,7 +23,7 @@ const Home = () => {
 
     const tl = gsap.timeline({
       repeat: -1,
-      repeatDelay: 4, // Pause between repeats (now 4 seconds)
+      repeatDelay: 0.9, // Pause between repeats (now 4 seconds)
     });
 
     tl

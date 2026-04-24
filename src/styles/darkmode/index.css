@@ -1,0 +1,412 @@
+/* ==================== DARK MODE OVERRIDES – ALL PAGES ==================== */
+
+/* ---------- NAVBAR ---------- */
+html.dark .navbar {
+  background: #0a0e27;               /* very dark navy */
+  border-bottom-color: #1e2440;
+}
+
+html.dark .navbar-logo {
+  color: #f0f4ff;
+}
+
+html.dark .navbar-logo:hover {
+  color: #5c7bff;
+}
+
+html.dark .navbar-icon {
+  color: #b0b8d4;
+}
+
+html.dark .navbar-icon:hover {
+  color: #5c7bff;
+}
+
+html.dark .navbar-toggle {
+  color: #b0b8d4;
+}
+
+html.dark .navbar-toggle:hover {
+  color: #5c7bff;
+}
+
+html.dark .navbar-left {
+  background: #0a0e27;
+  border-bottom-color: #1e2440;
+  box-shadow: -2px 4px 12px rgba(0,0,0,0.3);
+}
+
+html.dark .navbar-icon {
+  border-bottom-color: #1e2440;
+}
+
+/* ---------- HOME PAGE ---------- */
+html.dark .home-header h1 {
+  color: #f0f4ff;
+}
+
+html.dark .home-description p {
+  color: #b0b8d4;
+}
+
+html.dark .home-divider {
+  background: #5c7bff;
+}
+
+html.dark .home-btn {
+  background: #1a1f3a;
+  border-color: #2d3a5c;
+  color: #f0f4ff;
+}
+
+html.dark .home-btn-ai {
+  background: #5c7bff;
+  color: #ffffff;
+  border-color: #5c7bff;
+}
+
+html.dark .home-btn-ai:hover {
+  background: #4a6ae0;
+}
+
+html.dark .home-btn-player:hover {
+  background: #2d3a5c;
+  border-color: #5c7bff;
+  color: #5c7bff;
+}
+
+html.dark .robot-icon {
+  color: #5c7bff;
+}
+
+/* ---------- RANGE PICKER ---------- */
+html.dark .range-container {
+  background: transparent;                     /* inherited from body */
+}
+
+html.dark .range-card {
+  background: #0a0e27;
+  border-color: #1e2440;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+html.dark .range-title {
+  color: #f0f4ff;
+}
+
+html.dark .range-description {
+  color: #b0b8d4;
+}
+
+html.dark .range-divider {
+  background: #5c7bff;
+}
+
+html.dark .input-group label {
+  color: #b0b8d4;
+}
+
+html.dark .range-input {
+  background: #1a1f3a;
+  border-color: #2d3a5c;
+  color: #f0f4ff;
+}
+
+html.dark .range-input:focus {
+  border-color: #5c7bff;
+  box-shadow: 0 0 0 3px rgba(92,123,255,0.2);
+}
+
+html.dark .range-error {
+  color: #e53935;
+}
+
+html.dark .start-btn {
+  background: #5c7bff;
+  color: #fff;
+}
+
+html.dark .start-btn:hover:not(:disabled) {
+  background: #4a6ae0;
+}
+
+html.dark .back-btn {
+  color: #b0b8d4;
+}
+
+html.dark .back-btn:hover {
+  color: #5c7bff;
+}
+
+/* ---------- AI GUESSER ---------- */
+html.dark .ai-guesser-container {
+  background: transparent;
+}
+
+html.dark .ai-guesser-card {
+  background: #0a0e27;
+  border-color: #1e2440;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+html.dark .ai-title {
+  color: #f0f4ff;
+}
+
+html.dark .ai-guesser-card .range-display {
+  color: #b0b8d4;
+  background: #1a1f3a;
+}
+
+html.dark .target-section label {
+  color: #b0b8d4;
+}
+
+html.dark .target-input {
+  background: #1a1f3a;
+  border-color: #2d3a5c;
+  color: #f0f4ff;
+}
+
+html.dark .target-input:focus {
+  border-color: #5c7bff;
+  box-shadow: 0 0 0 3px rgba(92,123,255,0.2);
+}
+
+html.dark .randomize-btn {
+  background: #1a1f3a;
+  border-color: #2d3a5c;
+  color: #5c7bff;
+}
+
+html.dark .guess-number {
+  color: #5c7bff;
+}
+
+html.dark .message-box {
+  background: #1a1f3a;
+  color: #f0f4ff;
+}
+
+html.dark .log-box {
+  background: #1a1f3a;
+  border-color: #2d3a5c;
+}
+
+html.dark .log-entry {
+  color: #b0b8d4;
+  border-bottom-color: #2d3a5c;
+}
+
+html.dark .stats {
+  color: #f0f4ff;
+}
+
+html.dark .primary-btn {
+  background: #5c7bff;
+  color: #fff;
+}
+
+html.dark .secondary-btn {
+  background: transparent;
+  color: #5c7bff;
+  border-color: #5c7bff;
+}
+
+html.dark .outline-btn {
+  background: transparent;
+  color: #b0b8d4;
+  border-color: #2d3a5c;
+}
+
+html.dark .outline-btn:hover {
+  background: #1a1f3a;
+  border-color: #5c7bff;
+  color: #5c7bff;
+}
+
+/* ---------- PLAYER GUESSER ---------- */
+html.dark .player-guesser-container {
+  background: transparent;
+}
+
+html.dark .player-guesser-card {
+  background: #0a0e27;
+  border-color: #1e2440;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+html.dark .player-title {
+  color: #f0f4ff;
+}
+
+html.dark .player-guesser-card .range-display {
+  color: #b0b8d4;
+  background: #1a1f3a;
+}
+
+html.dark .secret-reveal {
+  color: #f0f4ff;
+}
+
+html.dark .secret-reveal span {
+  color: #5c7bff;
+}
+
+html.dark .feedback-box {
+  background: #1a1f3a;
+  color: #f0f4ff;
+}
+
+html.dark .feedback-box.success {
+  background: #1b5e20;
+  color: #e8f5e9;
+}
+
+html.dark .guess-input {
+  background: #1a1f3a;
+  border-color: #2d3a5c;
+  color: #f0f4ff;
+}
+
+html.dark .guess-input:focus {
+  border-color: #5c7bff;
+  box-shadow: 0 0 0 3px rgba(92,123,255,0.2);
+}
+
+html.dark .guess-submit-btn {
+  background: #5c7bff;
+  color: #fff;
+}
+
+html.dark .history-box {
+  background: #1a1f3a;
+  border-color: #2d3a5c;
+}
+
+html.dark .history-box h3 {
+  color: #b0b8d4;
+}
+
+html.dark .history-item {
+  border-bottom-color: #2d3a5c;
+}
+
+html.dark .history-guess {
+  color: #5c7bff;
+}
+
+html.dark .history-result {
+  color: #b0b8d4;
+}
+
+html.dark .player-guesser-card .primary-btn {
+  background: #5c7bff;
+  color: #fff;
+}
+
+html.dark .player-guesser-card .outline-btn {
+  background: transparent;
+  color: #b0b8d4;
+  border-color: #2d3a5c;
+}
+
+/* ---------- CONTACT PAGE ---------- */
+html.dark .contact-container {
+  background: transparent;
+}
+
+html.dark .contact-card {
+  background: #0a0e27;
+  border-color: #1e2440;
+}
+
+html.dark .contact-card h1 {
+  color: #f0f4ff;
+}
+
+html.dark .contact-message {
+  color: #b0b8d4;
+}
+
+html.dark .contact-email {
+  color: #5c7bff;
+  border-color: #5c7bff;
+}
+
+html.dark .contact-email:hover {
+  background: #5c7bff;
+  color: #fff;
+}
+
+html.dark .contact-back {
+  color: #888;
+}
+
+html.dark .contact-back:hover {
+  color: #5c7bff;
+}
+
+/* ---------- NOT FOUND PAGE ---------- */
+html.dark .notfound-container h1 {
+  color: #5c7bff;
+}
+
+html.dark .notfound-container h2 {
+  color: #f0f4ff;
+}
+
+html.dark .notfound-container a {
+  color: #5c7bff;
+}
+
+/* ---------- FOOTER ---------- */
+html.dark .footer {
+  color: #888;
+}
+
+html.dark .brand-mayo {
+  color: #f0f4ff;
+}
+
+html.dark .github-link {
+  color: #b0b8d4;
+}
+
+html.dark .github-link:hover {
+  color: #5c7bff;
+}
+
+/* ---------- APP WRAPPER (body background) ---------- */
+html.dark body {
+  background: #0a0e27;
+}
+
+html.dark .app-wrapper {
+  background: #0a0e27;
+}
+
+/* ---------- PRELOADER ---------- */
+html.dark .preloader {
+  background: #0a0e27;
+}
+
+html.dark .preloader-footer {
+  color: #888;
+}
+
+/* ---------- MATRIX BACKGROUND (floating numbers) ---------- */
+/* The canvas colours are set in JS. To make them dark-mode aware,
+   read the current value of a CSS variable inside MatrixBackground.tsx.
+   Example: GetComputedStyle & use `rgba(200,200,200,0.1)` or similar.
+   Provide a CSS variable for the grey colour:
+*/
+html.dark {
+  --matrix-number-color: rgba(180, 180, 200, 0.2);   /* lighter dim grey */
+}
+
+/* For the preloader image (if you want to adjust border/shadow) */
+html.dark .preloader-image {
+  border-color: #2d3a5c;
+  box-shadow: 0 4px 12px rgba(92,123,255,0.2);
+}

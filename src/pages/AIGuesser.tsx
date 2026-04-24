@@ -130,7 +130,7 @@ const AIGuesser = () => {
   return (
     <div className="ai-guesser-container">
       <div className="ai-guesser-card">
-        <h1 className="ai-title">AI Guesser (Binary Search)</h1>
+        <h1 className="ai-title"><span className="ai">AI</span> Guesser (Binary Search)</h1>
         <div className="range-display">
           Range: {initialMin} – {initialMax}
         </div>
