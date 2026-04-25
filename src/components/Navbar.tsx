@@ -59,7 +59,7 @@ const Navbar = () => {
           onClick={toggleTheme}
           aria-label="Toggle dark mode"
         >
-          {isDark ?  <MdOutlineLightMode size={22} /> : <FaMoon size={22} />}
+          {isDark ? <MdOutlineLightMode size={22} /> : <FaMoon size={22} />}
         </button>
 
         <Link to="/contact" className="navbar-icon" onClick={closeMenu}>

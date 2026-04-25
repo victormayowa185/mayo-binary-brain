@@ -23,7 +23,7 @@ const RangePicker = () => {
     navigate(destination, { state: { min, max } });
   };
 
-  const modeTitle = mode === "ai" ? "AI Guesses" : "You Guess";
+  
   const modeDescription =
     mode === "ai"
       ? "Think of a number between your chosen range. The AI will guess it using binary search."

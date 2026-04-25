@@ -64,6 +64,14 @@
   color: #5c7bff;
 }
 
+.theme-toggle {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.5rem;
+  border-radius: 0;
+}
+
 /* ==================== LARGE DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .navbar {
