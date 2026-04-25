@@ -61,35 +61,9 @@
   }
 }
 
-/* ==================== DESKTOP STYLES (1024px+) ==================== */
-@media (min-width: 1024px) {
-  .footer {
-    margin-top: 4rem;
-    gap: 1rem;
-    font-size: 0.875rem;
-    padding: 2rem;
-  }
-}
 
-/* ==================== LARGE DESKTOP STYLES (1440px+) ==================== */
-@media (min-width: 1440px) {
-  .footer {
-    margin-top: 4.5rem;
-    gap: 1.2rem;
-    font-size: 0.9rem;
-    padding: 2.5rem;
-  }
-}
 
-/* ==================== EXTRA LARGE DESKTOP (1920px+) ==================== */
-@media (min-width: 1920px) {
-  .footer {
-    margin-top: 5rem;
-    gap: 1.3rem;
-    font-size: 0.95rem;
-    padding: 3rem;
-  }
-}
+
 
 /* ==================== SMALL DEVICES (320px - 380px) ==================== */
 @media (max-width: 380px) {

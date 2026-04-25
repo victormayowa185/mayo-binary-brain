@@ -6,6 +6,7 @@
   padding: 2rem;
   background-color: #ffffff;
   font-family: 'Mulish', sans-serif;
+  overflow:  !important;
 }
 
 .contact-card {
@@ -70,42 +71,6 @@
   color: #5c7bff;
 }
 
-@media (max-width: 1023px) and (min-width: 800px) {
-  .contact-container {
-    min-height: 75vh;
-    padding: 2.5rem 1.5rem;
-  }
-
-  .contact-card {
-    max-width: 480px;
-    padding: 2.8rem 1.8rem;
-    border-radius: 30px;
-  }
-
-  .contact-icon {
-    margin-bottom: 1rem;
-  }
-
-  .contact-card h1 {
-    font-size: 1.9rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .contact-message {
-    font-size: 1.05rem;
-    margin-bottom: 1.8rem;
-  }
-
-  .contact-email {
-    font-size: 1.1rem;
-    padding: 0.7rem 1.4rem;
-    margin-bottom: 1.8rem;
-  }
-
-  .contact-back {
-    font-size: 0.9rem;
-  }
-}
 
 /* ==================== TABLET (600px - 799px) ==================== */
 @media (max-width: 799px) and (min-width: 600px) {
@@ -149,7 +114,7 @@
 /* ==================== SMALL TO MEDIUM (481px - 599px) ==================== */
 @media (max-width: 599px) and (min-width: 481px) {
   .contact-container {
-    min-height: 100vh;
+    min-height: 70vh;
     padding: 2rem 1rem;
   }
 
@@ -190,7 +155,7 @@
 /* ==================== SMALL DEVICES (320px - 480px) ==================== */
 @media (max-width: 480px) {
   .contact-container {
-    min-height: 100vh;
+    min-height: 70vh;
     padding: 1.5rem 1rem;
   }
 
@@ -256,7 +221,7 @@
 /* ==================== LANDSCAPE ORIENTATION ==================== */
 @media (max-height: 600px) and (orientation: landscape) {
   .contact-container {
-    min-height: auto;
+    min-height: 70vh;
     padding: 1.5rem 1rem;
   }
 
@@ -290,6 +255,7 @@
   .contact-back {
     font-size: 0.75rem;
   }
+  
 }
 
 /* ==================== TOUCH DEVICE OPTIMIZATION ==================== */
