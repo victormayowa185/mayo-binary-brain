@@ -12,13 +12,15 @@ import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
 
-  // On mount, read the saved theme from localStorage and apply it
+  // Initialize dark mode from localStorage without an effect
+  const [isDark, setIsDark] = useState(
+    () => localStorage.getItem("theme") === "dark",
+  );
+
+  // Apply the dark class on mount (no setState inside effect)
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDark(true);
+    if (localStorage.getItem("theme") === "dark") {
       document.documentElement.classList.add("dark");
     }
   }, []);
@@ -53,7 +55,6 @@ const Navbar = () => {
       </button>
 
       <div className={`navbar-left ${isOpen ? "active" : ""}`}>
-        {/* Dark mode toggle added here */}
         <button
           className="navbar-icon theme-toggle"
           onClick={toggleTheme}

@@ -8,10 +8,13 @@ const AIGuesser = () => {
   const navigate = useNavigate();
   const { min: initialMin = 10, max: initialMax = 100 } = location.state || {};
 
-  const initialTarget =
-    Math.floor(Math.random() * (initialMax - initialMin + 1)) + initialMin;
+  // Lazy initializer – Math.random only runs once, not during render
+  const [initialTarget] = useState(
+    () =>
+      Math.floor(Math.random() * (initialMax - initialMin + 1)) + initialMin,
+  );
 
-  const targetRef = useRef(initialTarget); // always holds the real target
+  const targetRef = useRef(initialTarget);
   const [targetInput, setTargetInput] = useState(initialTarget.toString());
   const [guess, setGuess] = useState<number | null>(null);
   const [attempts, setAttempts] = useState(0);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeft, FaPlay } from "react-icons/fa";
 import "../styles/RangePicker.css";
@@ -8,14 +8,16 @@ const RangePicker = () => {
   const { mode } = useParams<{ mode: string }>();
   const [min, setMin] = useState(10);
   const [max, setMax] = useState(100);
-  const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (min < 10) setError("Minimum must be at least 10.");
-    else if (max > 100) setError("Maximum cannot exceed 100.");
-    else if (min >= max) setError("Minimum must be less than maximum.");
-    else setError("");
-  }, [min, max]);
+  // Derived error message – no state, no effect
+  const error =
+    min < 10
+      ? "Minimum must be at least 10."
+      : max > 100
+        ? "Maximum cannot exceed 100."
+        : min >= max
+          ? "Minimum must be less than maximum."
+          : "";
 
   const handleStart = () => {
     if (error) return;
@@ -23,7 +25,6 @@ const RangePicker = () => {
     navigate(destination, { state: { min, max } });
   };
 
-  
   const modeDescription =
     mode === "ai"
       ? "Think of a number between your chosen range. The AI will guess it using binary search."
