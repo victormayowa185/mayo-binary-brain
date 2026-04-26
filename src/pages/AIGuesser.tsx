@@ -102,7 +102,6 @@ const AIGuesser = () => {
       );
       return;
     }
-    setTarget(num);
     targetRef.current = num;
     setAttempts(0);
     setLog([]);
@@ -121,7 +120,6 @@ const AIGuesser = () => {
   const handleRandomize = () => {
     const newTarget =
       Math.floor(Math.random() * (initialMax - initialMin + 1)) + initialMin;
-    setTarget(newTarget);
     targetRef.current = newTarget;
     setTargetInput(newTarget.toString());
     setMessage(`Target set to ${newTarget}. Click Start.`);
