@@ -11,7 +11,6 @@ const AIGuesser = () => {
   const initialTarget =
     Math.floor(Math.random() * (initialMax - initialMin + 1)) + initialMin;
 
-  const [target, setTarget] = useState(initialTarget);
   const targetRef = useRef(initialTarget); // always holds the real target
   const [targetInput, setTargetInput] = useState(initialTarget.toString());
   const [guess, setGuess] = useState<number | null>(null);
