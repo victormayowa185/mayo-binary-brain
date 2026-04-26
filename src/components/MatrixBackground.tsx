@@ -12,18 +12,15 @@ const MatrixBackground = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Fixed canvas size – doesn’t depend on the window or container
     canvas.width = 220;
     canvas.height = 220;
 
-    const fontSize = 38; // comfortable fixed size
+    const fontSize = 38;
     ctx.font = `${fontSize}px 'Mulish', monospace`;
-    ctx.fillStyle = "rgba(100, 100, 100, 0.21)"; // dim grey
 
-    const totalFloats = 8; // a few more for a nice cluster
-    // Cluster origin: top‑right area of the canvas (with margin)
-    const centerX = canvas.width - 65; // 65px from right edge
-    const centerY = 65; // 65px from top edge
+    const totalFloats = 8;
+    const centerX = canvas.width - 65;
+    const centerY = 65;
 
     const floats: {
       baseX: number;
@@ -40,7 +37,6 @@ const MatrixBackground = () => {
     for (let i = 0; i < totalFloats; i++) {
       const angle =
         (i / totalFloats) * Math.PI * 2 + (Math.random() - 0.5) * 1.5;
-      // Keep the radius moderate so the cluster stays within the canvas
       const radius = 30 + Math.random() * 65;
       const jitterX = (Math.random() - 0.5) * 20;
       const jitterY = (Math.random() - 0.5) * 20;
@@ -61,7 +57,15 @@ const MatrixBackground = () => {
     const tl = gsap.timeline({
       repeat: -1,
       onUpdate: () => {
+        // Check both html and body for the dark class
+        const isDark =
+          document.documentElement.classList.contains("dark") ||
+          document.body.classList.contains("dark");
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = isDark
+          ? "rgba(255, 255, 255, 0.22)" // white in dark mode
+          : "rgba(100, 100, 100, 0.21)"; // dim grey in light mode
         ctx.font = `${fontSize}px 'Mulish', monospace`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
@@ -90,18 +94,18 @@ const MatrixBackground = () => {
     return () => {
       tl.kill();
     };
-  }, []); // no resize listener needed anymore
+  }, []);
 
   return (
     <canvas
       ref={canvasRef}
       style={{
-        position: "fixed", // stays put even if page scrolls
-        top: "100px", // margin from top
-        right: "80px", // margin from right
+        position: "fixed",
+        top: "100px",
+        right: "80px",
         width: "220px",
         height: "220px",
-        zIndex: -1,
+        zIndex: 1, // sits above the background
         pointerEvents: "none",
       }}
     />
