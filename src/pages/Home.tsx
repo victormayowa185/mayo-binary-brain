@@ -49,7 +49,7 @@ const Home = () => {
       // Step 2: Return the "i" to normal while shaking
       .to(letterI, {
         scaleY: 1,
-        color: "#000000",
+        color: "inherit",
         duration: 0.8,
         ease: "elastic.out(1, 0.3)",
         keyframes: {

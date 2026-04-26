@@ -8,11 +8,12 @@ const AIGuesser = () => {
   const navigate = useNavigate();
   const { min: initialMin = 10, max: initialMax = 100 } = location.state || {};
 
-  const [target, setTarget] = useState(
-    () =>
-      Math.floor(Math.random() * (initialMax - initialMin + 1)) + initialMin,
-  );
-  const [targetInput, setTargetInput] = useState(target.toString());
+  const initialTarget =
+    Math.floor(Math.random() * (initialMax - initialMin + 1)) + initialMin;
+
+  const [target, setTarget] = useState(initialTarget);
+  const targetRef = useRef(initialTarget); // always holds the real target
+  const [targetInput, setTargetInput] = useState(initialTarget.toString());
   const [guess, setGuess] = useState<number | null>(null);
   const [attempts, setAttempts] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
@@ -51,6 +52,8 @@ const AIGuesser = () => {
   };
 
   const performStep = (low: number, high: number) => {
+    const currentTarget = targetRef.current; // always fresh
+
     if (low > high) {
       setMessage("Error: number not found.");
       setIsRunning(false);
@@ -61,15 +64,17 @@ const AIGuesser = () => {
     const mid = Math.floor((low + high) / 2);
     setGuess(mid);
     setAttempts((a) => a + 1);
-    if (mid === target) {
-      setMessage(`Found it! The number was ${target}.`);
+
+    if (mid === currentTarget) {
+      setMessage(`Found it! The number was ${currentTarget}.`);
       setLog((l) => [...l, `Guess: ${mid} → Correct! 🎉`]);
       setIsRunning(false);
       setIsComplete(true);
       stopTimer();
       return;
     }
-    if (mid < target) {
+
+    if (mid < currentTarget) {
       setLog((l) => [
         ...l,
         `Guess: ${mid} → Too low, new range: ${mid + 1} – ${high}`,
@@ -82,6 +87,7 @@ const AIGuesser = () => {
       ]);
       currentStepRef.current = { low, high: mid - 1 };
     }
+
     timeoutRef.current = setTimeout(
       () =>
         performStep(currentStepRef.current.low, currentStepRef.current.high),
@@ -98,6 +104,7 @@ const AIGuesser = () => {
       return;
     }
     setTarget(num);
+    targetRef.current = num;
     setAttempts(0);
     setLog([]);
     setIsComplete(false);
@@ -116,6 +123,7 @@ const AIGuesser = () => {
     const newTarget =
       Math.floor(Math.random() * (initialMax - initialMin + 1)) + initialMin;
     setTarget(newTarget);
+    targetRef.current = newTarget;
     setTargetInput(newTarget.toString());
     setMessage(`Target set to ${newTarget}. Click Start.`);
     setGuess(null);
@@ -127,10 +135,30 @@ const AIGuesser = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
   };
 
+  // Handle manual input changes – update the message when a valid number is typed
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value;
+    setTargetInput(raw);
+
+    if (raw.trim() === "") {
+      setMessage("Click Start to begin");
+      return;
+    }
+
+    const num = parseInt(raw, 10);
+    if (!isNaN(num) && num >= initialMin && num <= initialMax) {
+      setMessage(`Target set to ${num}. Click Start.`);
+    } else {
+      // Keep the previous message – don't overwrite with an error yet
+    }
+  };
+
   return (
     <div className="ai-guesser-container">
       <div className="ai-guesser-card">
-        <h1 className="ai-title"><span className="ai">AI</span> Guesser (Binary Search)</h1>
+        <h1 className="ai-title">
+          <span className="ai">AI</span> Guesser (Binary Search)
+        </h1>
         <div className="range-display">
           Range: {initialMin} – {initialMax}
         </div>
@@ -143,7 +171,7 @@ const AIGuesser = () => {
               min={initialMin}
               max={initialMax}
               value={targetInput}
-              onChange={(e) => setTargetInput(e.target.value)}
+              onChange={handleInputChange}
               disabled={isRunning}
               className="target-input"
             />

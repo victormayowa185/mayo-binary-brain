@@ -45,6 +45,8 @@ html.dark .home-header h1 {
   color: #f0f4ff;
 }
 
+
+
 html.dark .home-description p {
   color: #b0b8d4;
 }
@@ -141,6 +143,10 @@ html.dark .back-btn:hover {
 /* ---------- AI GUESSER ---------- */
 html.dark .ai-guesser-container {
   background: transparent;
+}
+
+html.dark .guess-label {
+  color: #f0f4ff;
 }
 
 html.dark .ai-guesser-card {
